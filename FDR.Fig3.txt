@@ -1,0 +1,36 @@
+
+#delimit ;
+graph hbar resp1 resp2 resp3 resp4 resp5, over(country, sort(ctryorder) desc label(angle(0) labs(small))) 
+intensity(*2) lintensity(255) name(Fig3, replace) stack  
+title("{bf:Figure 3. The consequence on national development of restrictions on personal freedoms}", size(small) pos(11) span) 
+subtitle("{it:What if there is more restrictions on personal freedoms? Would that help make your country a little more 
+	developed, a lot more}" 
+	"{it:developed, a little less developed, or a lot less developed?}", size(small) pos(11) span) 
+ytitle("Percentage choosing...", size(vsmall)) 
+yscale(r(0 105)) ylabel(0(10)100, angle(0) labs(vsmall)) 
+blabel(bar, position(center) format(%3.0f) color(gs1) size(vsmall)) 
+legend(label(1 "A lot more developed") label(2 "A little more developed") label(3 "Don't know") 
+	label(4 "A little less developed") label(5 "A lot less developed") 
+	region(lpattern(blank)) size(vsmall) symxsize(5) col(5) ring(1) position(12) span) 
+caption("{bf:NOTE}: Marginal percentages report the percentage reporting more development. Percentages in marginal parentheses report the 'DI response' and are the sum of 'A little" 
+	"less developed' and 'A lot less developed' response categories. Parenthetical totals may vary slightly from response category percentages due to rounding. Countries are" 
+	"sorted from highest to lowest prevalance of DI response.", size(vsmall) pos(7) span) 
+scheme(burd5) 
+text(96 106 "A little  or a lot", size(vsmall) place(e))  		//Column header
+text(96 102 "less developed", size(vsmall) place(e))  		//Column header
+text(102 93 "(79%)", size(vsmall) place(e))  	//Egypt
+text(102 71 "(76%)", size(vsmall) place(e))   	//Iraq
+text(102 50 "(64%)", size(vsmall) place(e))  	//Lebanon
+text(102 30 "(63%)", size(vsmall) place(e)) 	//Saudi Arabia
+text(102 9 "(51%)", size(vsmall) place(e))	 ;	//Turkey
+save Fig3.dta, replace
+
+
+DATA USED TO GENERATE FIGURE 3:
+
+country	measure	di	resp1	resp2	resp3	resp4	resp5
+Egypt	Freedom	78.91719	7.51592	9.68153	3.88535	42.1656	36.7516
+Iraq	Freedom	63.89452	13.9959	15.2468	6.86275	48.3773	15.5172
+Lebanon	Freedom	75.80591	5.08992	16.8646	2.23957	48.1846	27.6213
+Saudi Arabia	Freedom	63.50068	8.17503	20.5224	7.8019	40.6377	22.863
+
